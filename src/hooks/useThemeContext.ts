@@ -1,10 +1,25 @@
 import { createContext, useContext } from "react";
 
-export const ThemeContext = createContext(undefined);
+export type Theme = "dark" | "light" | "system";
 
-export function useThemeContext() {
-  const context = useContext(ThemeContext);
+type ThemeProviderState = {
+  theme: Theme;
+  setTheme: (theme: Theme) => void;
+};
+
+const initialState: ThemeProviderState = {
+  theme: "system",
+  setTheme: () => null,
+};
+
+export const ThemeProviderContext =
+  createContext<ThemeProviderState>(initialState);
+
+export const useTheme = () => {
+  const context = useContext(ThemeProviderContext);
+
   if (context === undefined)
-    throw new Error("You can't use Auth Context outside the Provider");
+    throw new Error("useTheme must be used within a ThemeProvider");
+
   return context;
-}
+};
