@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Layout from "./pages/Layout";
 
 import About from "./pages/About";
+import { Login } from "./pages/Login";
 
 const App: FC = () => {
   return (
@@ -17,13 +18,13 @@ const App: FC = () => {
           <Route path="categories"></Route>
           <Route path="employers"></Route>
           <Route path="top-5-jobs"></Route>
-          <Route path="login"></Route>
           <Route path="sign-up"></Route>
         </Route>
         <Route path="/dashboard">
           <Route path="settings"></Route>
           <Route path="resume"></Route>
         </Route>
+        <Route path="login" element={<Login />}></Route>
       </Routes>
     </BrowserRouter>
   );

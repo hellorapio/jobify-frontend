@@ -16,6 +16,9 @@ export default function ThemeProvider({
   const [theme, setTheme] = useState<Theme>(
     () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
   );
+  const systemTheme = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -37,6 +40,7 @@ export default function ThemeProvider({
 
   const value = {
     theme,
+    systemTheme,
     setTheme: (theme: Theme) => {
       localStorage.setItem(storageKey, theme);
       setTheme(theme);
