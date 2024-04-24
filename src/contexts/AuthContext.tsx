@@ -13,7 +13,7 @@ function reducer(
 ): typeof initialState {
   switch (action.type) {
     case "login":
-      return { ...state, isAuthenticated: true, user: action.payload };
+      return { ...state, isAuthenticated: true };
     case "logout":
       return { ...state, isAuthenticated: false, user: null };
     default:
@@ -32,7 +32,7 @@ export default function AuthProvider({ children }: AuthProviderProps) {
     initialState
   );
 
-  const { isLoading, user, error } = useUser(dispatch);
+  const { isLoading, user, error } = useUser();
 
   return (
     <AuthContext.Provider
