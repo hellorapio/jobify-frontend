@@ -1,9 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { getCurrentUser } from "@/services/auth";
-import { ReducerActionAuth } from "@/contexts/types";
-import { Dispatch } from "react";
 
-export function useUser(dispatch: Dispatch<ReducerActionAuth>) {
+export function useUser() {
   const {
     isLoading,
     data: user,
