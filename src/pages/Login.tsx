@@ -16,6 +16,7 @@ import {
 import { z } from "zod";
 import { login } from "@/services/auth";
 import SmallSpinner from "@/components/shared/SmallSpinner";
+import toast from "react-hot-toast";
 
 export function Login() {
   const form = useForm<z.infer<typeof loginSchema>>({
@@ -28,6 +29,7 @@ export function Login() {
 
   async function onSubmit(data: FieldValues) {
     await login(data);
+    toast.success("Logged in successfully", { duration: 4000 });
     form.resetField("password");
   }
 
@@ -121,7 +123,7 @@ export function Login() {
       <div className="hidden bg-muted lg:block">
         <img
           src="/background.jpg"
-          alt="login imggg"
+          alt="Beautiful background image"
           width="1920"
           height="1080"
           className="h-full w-full object-cover dark:brightness-[0.5] dark:grayscale"

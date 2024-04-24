@@ -33,13 +33,10 @@ export async function signup(body: object) {
   });
 
   if (!res.ok) {
-    toast.error((await res.json()).message, {
-      duration: 6000,
-    });
-    return;
+    return (await res.json()).message;
   }
 
-  return res.json();
+  return (await res.json()).data;
 }
 
 export async function forgotPass() {}

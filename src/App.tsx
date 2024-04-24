@@ -5,6 +5,7 @@ import Layout from "./pages/Layout";
 
 import About from "./pages/About";
 import { Login } from "./pages/Login";
+import Signup from "./pages/SignUp";
 
 const App: FC = () => {
   return (
@@ -18,12 +19,12 @@ const App: FC = () => {
           <Route path="categories"></Route>
           <Route path="employers"></Route>
           <Route path="top-5-jobs"></Route>
-          <Route path="sign-up"></Route>
         </Route>
         <Route path="/dashboard">
           <Route path="settings"></Route>
           <Route path="resume"></Route>
         </Route>
+        <Route path="sign-up" element={<Signup />}></Route>
         <Route path="login" element={<Login />}></Route>
       </Routes>
     </BrowserRouter>

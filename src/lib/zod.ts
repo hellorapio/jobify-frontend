@@ -7,13 +7,13 @@ export const signupSchema = z
       .min(1, "Email is Required")
       .email("Invalid email address"),
     password: z.string().min(1, "Password is Required"),
-    confirmPassword: z.string().min(1, "Confirm Password is Required"),
+    passwordConfirm: z.string().min(1, "Confirm Password is Required"),
     name: z.string().min(1, "Name is Required"),
-    role: z.enum(["Job Seeker", "company"]),
+    role: z.enum(["worker", "company", ""]),
   })
-  .refine((data) => data.password === data.confirmPassword, {
+  .refine((data) => data.password === data.passwordConfirm, {
     message: "Passwords must match",
-    path: ["confirmPassword"],
+    path: ["passwordConfirm"],
   });
 
 export const loginSchema = z.object({
