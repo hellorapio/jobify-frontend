@@ -1,3 +1,3 @@
 export default {
-  api: "http://localhost:5000/api/v1/",
+  api: "https://jobify-vo21.onrender.com/api/v1/",
 };
