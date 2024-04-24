@@ -2,7 +2,7 @@ import Logo from "@/components/shared/Logo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { loginSchema } from "@/lib/zod";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FieldValues, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -16,8 +16,13 @@ import {
 import { z } from "zod";
 import SmallSpinner from "@/components/shared/SmallSpinner";
 import { useLogin } from "@/hooks/auth/hooks";
+import { useEffect } from "react";
+import { useAuthContext } from "@/hooks/auth/useAuthContext";
 
 export function Login() {
+  const navigate = useNavigate();
+  const { isAuthenticated, dispatch } = useAuthContext();
+
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -26,13 +31,25 @@ export function Login() {
     },
   });
 
-  const { login } = useLogin(() => {
-    form.resetField("password");
-  });
+  const { login } = useLogin(
+    () => {
+      form.resetField("password");
+    },
+    () => dispatch({ type: "login" })
+  );
 
   async function onSubmit(data: FieldValues) {
     await login(data);
   }
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/", { replace: true });
+      return;
+    }
+  }, [isAuthenticated, navigate]);
+
+  if (isAuthenticated) return null;
 
   return (
     <div className="w-full h-screen lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]">

@@ -4,7 +4,7 @@ import { toast } from "react-hot-toast";
 import { login as loginApi } from "@/services/auth";
 import { signup as signupApi } from "@/services/auth";
 
-export function useLogin(cb: () => void) {
+export function useLogin(errCb: () => void, successCb: () => void) {
   const navigate = useNavigate();
 
   const { mutateAsync: login } = useMutation({
@@ -12,10 +12,11 @@ export function useLogin(cb: () => void) {
     onSuccess: () => {
       toast.success("Logged in successfully", { duration: 4000 });
       navigate("/", { replace: true });
+      successCb();
     },
     onError: (err) => {
       toast.error(err.message, { duration: 6000 });
-      cb();
+      errCb();
     },
   });
 

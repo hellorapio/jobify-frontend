@@ -1,3 +1,4 @@
+import AuthProvider from "@/contexts/AuthContext";
 import ThemeProvider from "@/contexts/ThemeContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
@@ -12,8 +13,10 @@ export default function Providers({ children }: ProvidersProps) {
   return (
     <ThemeProvider>
       <QueryClientProvider client={queryClient}>
-        <Toaster />
-        {children}
+        <AuthProvider>
+          <Toaster />
+          {children}
+        </AuthProvider>
       </QueryClientProvider>
     </ThemeProvider>
   );

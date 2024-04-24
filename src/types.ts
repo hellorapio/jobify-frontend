@@ -39,3 +39,36 @@ export interface IJob {
   isActive: boolean;
   slug: string;
 }
+
+export interface IUser {
+  gender: string;
+  birthDate: Date;
+  address: string;
+  name: string;
+  photo: string;
+  email: string;
+  role: "worker" | "company" | "admin";
+  passwordChangeDate: Date | undefined;
+  loggedOutAt: Date;
+  joinDate: Date;
+  isVerifiedAt: Date;
+  isVerified: boolean;
+  username: string;
+  experience: string[];
+  education: string[];
+  experienceYears: number;
+  resume: string;
+  industry: string[];
+  ratingsAverage: number;
+  ratingsCount: number;
+  founded: Date;
+  companyDescription: string;
+  numberOfEmployees: number;
+  jobs: number;
+  revenue: number;
+  contactInformation: {
+    website: string;
+    phone: string;
+    email: string;
+  };
+}
