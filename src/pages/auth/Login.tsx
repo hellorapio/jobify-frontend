@@ -14,9 +14,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { z } from "zod";
-import { login } from "@/services/auth";
 import SmallSpinner from "@/components/shared/SmallSpinner";
-import toast from "react-hot-toast";
+import { useLogin } from "@/hooks/auth/hooks";
 
 export function Login() {
   const form = useForm<z.infer<typeof loginSchema>>({
@@ -27,10 +26,12 @@ export function Login() {
     },
   });
 
+  const { login } = useLogin(() => {
+    form.resetField("password");
+  });
+
   async function onSubmit(data: FieldValues) {
     await login(data);
-    toast.success("Logged in successfully", { duration: 4000 });
-    form.resetField("password");
   }
 
   return (

@@ -2,10 +2,10 @@ import { FC } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Layout from "./pages/Layout";
-
+import PageNotFound from "./pages/NotFound";
 import About from "./pages/About";
-import { Login } from "./pages/Login";
-import Signup from "./pages/SignUp";
+import { Login } from "./pages/auth/Login";
+import Signup from "./pages/auth/SignUp";
 
 const App: FC = () => {
   return (
@@ -26,6 +26,8 @@ const App: FC = () => {
         </Route>
         <Route path="sign-up" element={<Signup />}></Route>
         <Route path="login" element={<Login />}></Route>
+        <Route path="verify/:token" element={<Login />}></Route>
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
   );

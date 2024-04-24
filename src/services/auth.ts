@@ -1,4 +1,3 @@
-import toast from "react-hot-toast";
 import constants from "./constants";
 const api = constants.api + "auth/";
 
@@ -13,10 +12,7 @@ export async function login(body: object) {
   });
 
   if (!res.ok) {
-    toast.error((await res.json()).message, {
-      duration: 6000,
-    });
-    return;
+    throw new Error((await res.json()).message);
   }
 
   return res.json();
@@ -33,13 +29,56 @@ export async function signup(body: object) {
   });
 
   if (!res.ok) {
-    return (await res.json()).message;
+    throw new Error((await res.json()).message);
   }
 
-  return (await res.json()).data;
+  return res.json();
 }
 
-export async function forgotPass() {}
+export async function logout() {
+  const res = await fetch(api + "logout", {
+    method: "POST",
+    credentials: "include",
+  });
+
+  if (!res.ok) {
+    throw new Error((await res.json()).message);
+  }
+
+  return res.json();
+}
+
+export async function forgotPass(email: object) {
+  const res = await fetch(api + "forgot-password", {
+    method: "POST",
+    credentials: "include",
+    body: JSON.stringify({ email }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (!res.ok) {
+    throw new Error((await res.json()).message);
+  }
+
+  return res.json();
+}
+
+export async function getCurrentUser() {
+  const res = await fetch(api + "me", {
+    method: "GET",
+    credentials: "include",
+  });
+
+  if (!res.ok) {
+    throw new Error((await res.json()).message);
+  }
+
+  return res.json();
+
+}
+
 export async function changePass() {}
 export async function verifyAccount() {}
 export async function resetPassword() {}

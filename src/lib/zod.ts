@@ -6,9 +6,19 @@ export const signupSchema = z
       .string()
       .min(1, "Email is Required")
       .email("Invalid email address"),
-    password: z.string().min(1, "Password is Required"),
+    password: z
+      .string()
+      .min(1, "Password is Required")
+      .regex(
+        /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/,
+        "Password is not strong"
+      ),
     passwordConfirm: z.string().min(1, "Confirm Password is Required"),
-    name: z.string().min(1, "Name is Required"),
+    name: z
+      .string()
+      .min(1, "Name is Required")
+      .regex(/^[a-zA-Z\s]+$/, "Name must only contain letters")
+      .trim(),
     role: z.enum(["worker", "company", ""]),
   })
   .refine((data) => data.password === data.passwordConfirm, {

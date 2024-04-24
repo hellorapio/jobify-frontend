@@ -16,10 +16,10 @@ const Nav = () => {
           <Link to="/about">About</Link>
         </li>
         <li>
-          <ModeToggle />
+          <Link to="/login">Login</Link>
         </li>
         <li>
-          <Link to="/login">login</Link>
+          <ModeToggle />
         </li>
       </ul>
     </nav>

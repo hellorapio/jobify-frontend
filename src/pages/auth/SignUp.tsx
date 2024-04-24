@@ -24,9 +24,8 @@ import {
 } from "@/components/ui/select";
 
 import { z } from "zod";
-import { signup } from "@/services/auth";
 import SmallSpinner from "@/components/shared/SmallSpinner";
-import toast from "react-hot-toast";
+import { useSignup } from "@/hooks/auth/hooks";
 
 export default function Signup() {
   const form = useForm<z.infer<typeof signupSchema>>({
@@ -40,17 +39,10 @@ export default function Signup() {
     },
   });
 
+  const { signup } = useSignup(form.reset);
+
   async function onSubmit(data: FieldValues) {
-    const message = await signup(data);
-    if (message === "Email Verification has been sent") {
-      toast.success(
-        "Your account has been created successfully, Please Check Your Email to verify your account.",
-        { duration: 6000 }
-      );
-    } else {
-      toast.error(message, { duration: 6000 });
-      form.reset();
-    }
+    await signup(data);
   }
 
   return (
