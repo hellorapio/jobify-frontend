@@ -10,9 +10,6 @@ const Nav = () => {
       </div>
       <ul className="flex gap-10 items-center font-semibold">
         <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
           <Link to="/jobs">Jobs</Link>
         </li>
         <li>
