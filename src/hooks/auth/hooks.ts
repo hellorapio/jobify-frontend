@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { login as loginApi } from "@/services/auth";
 import { signup as signupApi } from "@/services/auth";
+
 export function useLogin(errCb: () => void) {
-  const queryClient = useQueryClient()
+  const queryClient = useQueryClient();
   const navigate = useNavigate();
 
   const { mutateAsync: login } = useMutation({
@@ -26,7 +27,7 @@ export function useLogin(errCb: () => void) {
 
 export function useSignup(cb: () => void) {
   const navigate = useNavigate();
-
+  const queryClient = useQueryClient();
   const { mutateAsync: signup } = useMutation({
     mutationFn: (body: object) => signupApi(body),
     onSuccess: (data) => {
@@ -34,6 +35,7 @@ export function useSignup(cb: () => void) {
         "Your account has been created successfully, Please Check Your Email to verify your account."
       );
       localStorage.setItem("token", data.token);
+      queryClient.invalidateQueries({ queryKey: ["user"] });
       navigate("/", { replace: true });
     },
     onError: (err) => {

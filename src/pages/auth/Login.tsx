@@ -32,7 +32,7 @@ export function Login() {
   });
 
   const { login } = useLogin(() => {
-    form.resetField("password");
+    form.reset();
   });
 
   async function onSubmit(data: FieldValues) {
@@ -80,6 +80,7 @@ export function Login() {
                         <Input
                           id="email"
                           placeholder="Enter Your Email"
+                          disabled={form.formState.isSubmitting}
                           {...field}
                         />
                       </FormControl>
@@ -104,7 +105,13 @@ export function Login() {
                         </Link>
                       </div>
                       <FormControl>
-                        <Input id="password" type="password" placeholder="Enter Your Password" {...field} />
+                        <Input
+                          id="password"
+                          type="password"
+                          placeholder="Enter Your Password"
+                          disabled={form.formState.isSubmitting}
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>

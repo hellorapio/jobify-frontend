@@ -78,6 +78,7 @@ export default function Signup() {
                         <Input
                           id="name"
                           placeholder="Enter your name"
+                          disabled={form.formState.isSubmitting}
                           {...field}
                         />
                       </FormControl>
@@ -97,6 +98,7 @@ export default function Signup() {
                         <Input
                           id="email"
                           placeholder="email@example.com"
+                          disabled={form.formState.isSubmitting}
                           {...field}
                         />
                       </FormControl>
@@ -118,6 +120,7 @@ export default function Signup() {
                           id="password"
                           type="password"
                           placeholder="8 Min Length"
+                          disabled={form.formState.isSubmitting}
                           {...field}
                         />
                       </FormControl>
@@ -143,6 +146,7 @@ export default function Signup() {
                           id="passwordConfirm"
                           type="password"
                           placeholder="Confirm your password"
+                          disabled={form.formState.isSubmitting}
                           {...field}
                         />
                       </FormControl>
@@ -164,11 +168,11 @@ export default function Signup() {
                       >
                         <FormControl>
                           <SelectTrigger>
-                            <SelectValue placeholder="Who are you ?" />
+                            <SelectValue placeholder="Who are you ?"/>
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="worker">
+                          <SelectItem value="worker" >
                             Job Seeker
                           </SelectItem>
                           <SelectItem value="company">Company</SelectItem>
