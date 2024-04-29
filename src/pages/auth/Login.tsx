@@ -21,7 +21,7 @@ import { useAuthContext } from "@/hooks/auth/useAuthContext";
 
 export function Login() {
   const navigate = useNavigate();
-  const { isAuthenticated, dispatch } = useAuthContext();
+  const { isAuthenticated } = useAuthContext();
 
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
@@ -31,12 +31,9 @@ export function Login() {
     },
   });
 
-  const { login } = useLogin(
-    () => {
-      form.resetField("password");
-    },
-    () => dispatch({ type: "login" })
-  );
+  const { login } = useLogin(() => {
+    form.resetField("password");
+  });
 
   async function onSubmit(data: FieldValues) {
     await login(data);
@@ -82,7 +79,7 @@ export function Login() {
                       <FormControl>
                         <Input
                           id="email"
-                          placeholder="email@example.com"
+                          placeholder="Enter Your Email"
                           {...field}
                         />
                       </FormControl>
@@ -107,7 +104,7 @@ export function Login() {
                         </Link>
                       </div>
                       <FormControl>
-                        <Input id="password" type="password" {...field} />
+                        <Input id="password" type="password" placeholder="Enter Your Password" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>

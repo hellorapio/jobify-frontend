@@ -1,21 +1,22 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { login as loginApi } from "@/services/auth";
 import { signup as signupApi } from "@/services/auth";
-
-export function useLogin(errCb: () => void, successCb: () => void) {
+export function useLogin(errCb: () => void) {
+  const queryClient = useQueryClient()
   const navigate = useNavigate();
 
   const { mutateAsync: login } = useMutation({
     mutationFn: (body: object) => loginApi(body),
-    onSuccess: () => {
-      toast.success("Logged in successfully", { duration: 4000 });
+    onSuccess: (data) => {
+      toast.success("Logged in successfully");
+      localStorage.setItem("token", data.token);
+      queryClient.invalidateQueries({ queryKey: ["user"] });
       navigate("/", { replace: true });
-      successCb();
     },
     onError: (err) => {
-      toast.error(err.message, { duration: 6000 });
+      toast.error(err.message);
       errCb();
     },
   });
@@ -28,15 +29,15 @@ export function useSignup(cb: () => void) {
 
   const { mutateAsync: signup } = useMutation({
     mutationFn: (body: object) => signupApi(body),
-    onSuccess: () => {
+    onSuccess: (data) => {
       toast.success(
-        "Your account has been created successfully, Please Check Your Email to verify your account.",
-        { duration: 6000 }
+        "Your account has been created successfully, Please Check Your Email to verify your account."
       );
+      localStorage.setItem("token", data.token);
       navigate("/", { replace: true });
     },
     onError: (err) => {
-      toast.error(err.message, { duration: 6000 });
+      toast.error(err.message);
       cb();
     },
   });

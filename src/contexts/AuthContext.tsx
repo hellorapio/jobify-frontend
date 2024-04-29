@@ -1,6 +1,6 @@
 import { AuthContext } from "@/hooks/auth/useAuthContext";
 import { useUser } from "@/hooks/auth/useUser";
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import { ReducerActionAuth, ReducerStateAuth } from "./types";
 
 type AuthProviderProps = {
@@ -33,6 +33,16 @@ export default function AuthProvider({ children }: AuthProviderProps) {
   );
 
   const { isLoading, user, error } = useUser();
+
+  useEffect(() => {
+    if (user) {
+      dispatch({ type: "login" });
+    }
+    if (error?.message === "Invalid Token Please Login Back") {
+      dispatch({ type: "logout" });
+      localStorage.removeItem("token");
+    }
+  }, [user, error]);
 
   return (
     <AuthContext.Provider

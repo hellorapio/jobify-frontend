@@ -65,20 +65,6 @@ export async function forgotPass(email: object) {
   return res.json();
 }
 
-export async function getCurrentUser() {
-  const res = await fetch(api + "me", {
-    method: "GET",
-    credentials: "include",
-  });
-
-  if (!res.ok) {
-    throw new Error((await res.json()).message);
-  }
-
-  return res.json();
-
-}
-
 export async function changePass() {}
 export async function verifyAccount() {}
 export async function resetPassword() {}
