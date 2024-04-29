@@ -19,7 +19,9 @@ export const signupSchema = z
       .min(1, "Name is Required")
       .regex(/^[a-zA-Z\s]+$/, "Name must only contain letters")
       .trim(),
-    role: z.enum(["worker", "company", ""]),
+    role: z.enum(["worker", "company"], {
+      required_error: "Invalid account type",
+    }),
   })
   .refine((data) => data.password === data.passwordConfirm, {
     message: "Passwords must match",

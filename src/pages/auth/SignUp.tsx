@@ -35,14 +35,20 @@ export default function Signup() {
       password: "",
       passwordConfirm: "",
       name: "",
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
       role: "",
     },
   });
 
-  const { signup } = useSignup(form.reset);
+  const { signup } = useSignup();
 
   async function onSubmit(data: FieldValues) {
-    await signup(data);
+    try {
+      await signup(data);
+    } catch (error) {
+      form.reset();
+    }
   }
 
   return (
@@ -165,14 +171,15 @@ export default function Signup() {
                       <Select
                         onValueChange={field.onChange}
                         defaultValue={field.value}
+                        value={field.value}
                       >
                         <FormControl>
                           <SelectTrigger>
-                            <SelectValue placeholder="Who are you ?"/>
+                            <SelectValue placeholder="Who are you ?" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="worker" >
+                          <SelectItem value="worker">
                             Job Seeker
                           </SelectItem>
                           <SelectItem value="company">Company</SelectItem>

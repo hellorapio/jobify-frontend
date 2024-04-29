@@ -4,7 +4,7 @@ import { toast } from "react-hot-toast";
 import { login as loginApi } from "@/services/auth";
 import { signup as signupApi } from "@/services/auth";
 
-export function useLogin(errCb: () => void) {
+export function useLogin() {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
 
@@ -18,14 +18,13 @@ export function useLogin(errCb: () => void) {
     },
     onError: (err) => {
       toast.error(err.message);
-      errCb();
     },
   });
 
   return { login };
 }
 
-export function useSignup(cb: () => void) {
+export function useSignup() {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const { mutateAsync: signup } = useMutation({
@@ -40,7 +39,6 @@ export function useSignup(cb: () => void) {
     },
     onError: (err) => {
       toast.error(err.message);
-      cb();
     },
   });
 

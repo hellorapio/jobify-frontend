@@ -11,11 +11,13 @@ export async function login(body: object) {
     },
   });
 
+  const data = await res.json();
+
   if (!res.ok) {
-    throw new Error((await res.json()).message);
+    throw new Error(data.message);
   }
 
-  return res.json();
+  return data;
 }
 
 export async function signup(body: object) {
@@ -39,6 +41,10 @@ export async function logout() {
   const res = await fetch(api + "logout", {
     method: "POST",
     credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("token") || "",
+    },
   });
 
   if (!res.ok) {

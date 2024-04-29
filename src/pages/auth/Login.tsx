@@ -31,12 +31,14 @@ export function Login() {
     },
   });
 
-  const { login } = useLogin(() => {
-    form.reset();
-  });
+  const { login } = useLogin();
 
   async function onSubmit(data: FieldValues) {
-    await login(data);
+    try {
+      await login(data);
+    } catch (err) {
+      form.reset();
+    }
   }
 
   useEffect(() => {
