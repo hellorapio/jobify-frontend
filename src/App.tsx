@@ -7,6 +7,7 @@ import About from "./pages/About";
 import { Login } from "./pages/auth/Login";
 import Signup from "./pages/auth/SignUp";
 import ProtectedRoute from "./components/shared/Protect";
+import Verify from "./pages/auth/Verify";
 
 const App: FC = () => {
   return (
@@ -34,7 +35,7 @@ const App: FC = () => {
         </Route>
         <Route path="sign-up" element={<Signup />}></Route>
         <Route path="login" element={<Login />}></Route>
-        <Route path="verify/:token" element={<Login />}></Route>
+        <Route path="verify/:token" element={<Verify />}></Route>
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>

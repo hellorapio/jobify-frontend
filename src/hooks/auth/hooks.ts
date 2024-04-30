@@ -5,6 +5,7 @@ import {
   login as loginApi,
   signup as signupApi,
   logout as logoutApi,
+  verifyAccount,
 } from "@/services/auth";
 
 export function useLogin() {
@@ -66,4 +67,16 @@ export function useLogout() {
   });
 
   return { logout };
+}
+
+export function useVerify() {
+  return useMutation({
+    mutationFn: (token: string) => verifyAccount(token),
+    onSuccess: () => {
+      toast.success("Account verified successfully");
+    },
+    onError: (err) => {
+      toast.error(err.message);
+    },
+  });
 }

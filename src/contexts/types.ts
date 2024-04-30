@@ -1,4 +1,4 @@
-export type ReducerActionAuth = { type: "login" } | { type: "logout" };
+export type ReducerActionAuth = { type: "login" | "logout" };
 
 export type ReducerStateAuth = {
   isAuthenticated: boolean;

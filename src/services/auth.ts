@@ -58,6 +58,24 @@ export async function logout() {
   return data;
 }
 
+export async function verifyAccount(token: string) {
+  const res = await fetch(api + "email-verification/" + token, {
+    method: "POST",
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  const data = await res.json();
+
+  if (!res.ok) {
+    throw new Error(data.message);
+  }
+
+  return data;
+}
+
 export async function forgotPass(email: object) {
   const res = await fetch(api + "forgot-password", {
     method: "POST",
@@ -78,5 +96,4 @@ export async function forgotPass(email: object) {
 }
 
 export async function changePass() {}
-export async function verifyAccount() {}
 export async function resetPassword() {}
