@@ -1,7 +1,7 @@
 import Logo from "@/components/shared/Logo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { signupSchema } from "@/lib/zod";
 import { FieldValues, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -26,8 +26,13 @@ import {
 import { z } from "zod";
 import SmallSpinner from "@/components/shared/SmallSpinner";
 import { useSignup } from "@/hooks/auth/hooks";
+import { useAuthContext } from "@/hooks/auth/useAuthContext";
+import { useEffect } from "react";
 
 export default function Signup() {
+  const navigate = useNavigate();
+  const { isAuthenticated } = useAuthContext();
+
   const form = useForm<z.infer<typeof signupSchema>>({
     resolver: zodResolver(signupSchema),
     defaultValues: {
@@ -51,6 +56,14 @@ export default function Signup() {
     }
   }
 
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/", { replace: true });
+      return;
+    }
+  }, [isAuthenticated, navigate]);
+
+  if (isAuthenticated) return null;
   return (
     <div className="w-full h-screen lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]">
       <Form {...form}>
