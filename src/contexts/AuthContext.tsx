@@ -15,14 +15,13 @@ function reducer(
     case "login":
       return { ...state, isAuthenticated: true };
     case "logout":
-      return { ...state, isAuthenticated: false, user: null };
+      return { ...state, isAuthenticated: false };
     default:
       throw new Error("Unknown Type has been passed");
   }
 }
 
 const initialState: ReducerStateAuth = {
-  user: null,
   isAuthenticated: false,
 };
 
@@ -40,6 +39,7 @@ export default function AuthProvider({ children }: AuthProviderProps) {
     }
     if (error?.message === "Invalid Token Please Login Back") {
       dispatch({ type: "logout" });
+
       localStorage.removeItem("token");
     }
   }, [user, error]);

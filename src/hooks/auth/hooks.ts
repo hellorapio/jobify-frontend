@@ -1,8 +1,11 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
-import { login as loginApi } from "@/services/auth";
-import { signup as signupApi } from "@/services/auth";
+import {
+  login as loginApi,
+  signup as signupApi,
+  logout as logoutApi,
+} from "@/services/auth";
 
 export function useLogin() {
   const queryClient = useQueryClient();
@@ -43,4 +46,24 @@ export function useSignup() {
   });
 
   return { signup };
+}
+
+export function useLogout() {
+  const queryClient = useQueryClient();
+  const navigate = useNavigate();
+
+  const { mutateAsync: logout } = useMutation({
+    mutationFn: () => logoutApi(),
+    onSuccess: async () => {
+      toast.success("Logged out successfully");
+      localStorage.removeItem("token");
+      await queryClient.invalidateQueries({ queryKey: ["user"] });
+      navigate("/login", { replace: true });
+    },
+    onError: (err) => {
+      toast.error(err.message);
+    },
+  });
+
+  return { logout };
 }

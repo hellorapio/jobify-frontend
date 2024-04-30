@@ -24,10 +24,10 @@ export default function Providers({ children }: ProvidersProps) {
           <Toaster
             toastOptions={{
               success: {
-                duration: 3000,
+                duration: 4000,
               },
               error: {
-                duration: 5000,
+                duration: 6000,
               },
             }}
           />

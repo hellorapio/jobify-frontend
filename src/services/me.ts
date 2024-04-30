@@ -10,9 +10,11 @@ export async function getCurrentUser() {
     },
   });
 
+  const data = await res.json();
+
   if (!res.ok) {
-    throw new Error((await res.json()).message);
+    throw new Error(data.message);
   }
 
-  return res.json();
+  return data;
 }

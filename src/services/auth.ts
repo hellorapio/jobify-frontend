@@ -30,11 +30,13 @@ export async function signup(body: object) {
     },
   });
 
+  const data = await res.json();
+
   if (!res.ok) {
-    throw new Error((await res.json()).message);
+    throw new Error(data.message);
   }
 
-  return res.json();
+  return data;
 }
 
 export async function logout() {
@@ -47,11 +49,13 @@ export async function logout() {
     },
   });
 
+  const data = await res.json();
+
   if (!res.ok) {
-    throw new Error((await res.json()).message);
+    throw new Error(data.message);
   }
 
-  return res.json();
+  return data;
 }
 
 export async function forgotPass(email: object) {
@@ -64,11 +68,13 @@ export async function forgotPass(email: object) {
     },
   });
 
+  const data = await res.json();
+
   if (!res.ok) {
-    throw new Error((await res.json()).message);
+    throw new Error(data.message);
   }
 
-  return res.json();
+  return data;
 }
 
 export async function changePass() {}

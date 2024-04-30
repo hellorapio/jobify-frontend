@@ -1,6 +1,7 @@
 import Logo from "./shared/Logo";
 import { Link } from "react-router-dom";
 import { ModeToggle } from "./ui/toggle";
+import UserStatus from "./shared/UserStatus";
 
 const Nav = () => {
   return (
@@ -16,7 +17,7 @@ const Nav = () => {
           <Link to="/about">About</Link>
         </li>
         <li>
-          <Link to="/login">Login</Link>
+          <UserStatus />
         </li>
         <li>
           <ModeToggle />
