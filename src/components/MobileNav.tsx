@@ -1,17 +1,21 @@
-import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import MobileNavItems from "./MobileNavItems";
 import { cn } from "@/lib/utils";
+import { X } from "lucide-react";
 
-const MobileNav = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-
+const MobileNav = ({
+  isOpen,
+  setIsOpen,
+}: {
+  isOpen: boolean;
+  setIsOpen: (s: boolean) => void;
+}) => {
   const { pathname } = useLocation();
 
   useEffect(() => {
     setIsOpen(false);
-  }, [pathname]);
+  }, [pathname, setIsOpen]);
 
   const closeOnCurrent = (href: string) => {
     if (pathname === href) {
@@ -25,35 +29,31 @@ const MobileNav = () => {
   }, [isOpen]);
 
   return (
-    <div className="mr-4 bg-background">
-      <div
-        className={cn(
-          "lg:hidden fixed overscroll-y-none inset-0 z-[100] flex",
-          {
-            "bg-background": isOpen,
-          }
-        )}
-      >
-        <div className="w-4/5">
-          <div className="relative flex w-full max-w-sm flex-col overflow-y-auto ">
-            <div className="flex px-4 pb-2 pt-5">
+    <div className="mr-4 bg-background z-[20]">
+      {isOpen && (
+        <div
+          className={cn(
+            "lg:hidden fixed right-0 -top-16 overscroll-y-none inset-0 flex",
+            {
+              "bg-background": isOpen,
+            }
+          )}
+        >
+          <div className="w-4/5">
+            <div className="relative flex w-full max-w-sm flex-col overflow-y-auto ">
               <button
                 type="button"
-                onClick={() => setIsOpen((s) => !s)}
-                className="lg:hidden relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-inherit"
+                onClick={() => setIsOpen(false)}
+                className="lg:hidden absolute top-2 left-5 p-2 rounded-md text-inherit"
               >
-                {isOpen ? (
-                  <X className="h-6 w-6" aria-hidden="true" />
-                ) : (
-                  <Menu className="h-6 w-6" aria-hidden="true" />
-                )}
+                <X className="h-6 w-6" aria-hidden="true" />
               </button>
-            </div>
 
-            {isOpen && <MobileNavItems clickHandler={closeOnCurrent} />}
+              {isOpen && <MobileNavItems clickHandler={closeOnCurrent} />}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

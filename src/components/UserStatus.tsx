@@ -1,7 +1,7 @@
 import { useAuthContext } from "@/hooks/auth/useAuthContext";
 import { Link } from "react-router-dom";
 import SmallSpinner from "./shared/SmallSpinner";
-import { buttonVariants } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
 import UserAccountNav from "./UserAccountNav";
 import { Separator } from "./ui/separator";
 
@@ -15,24 +15,24 @@ export default function UserStatus() {
         <UserAccountNav user={user} />
       ) : (
         <>
-          <Link
-            to="/login"
+          <Button
+            asChild
             className={buttonVariants({
               variant: "secondary",
             })}
           >
-            Login
-          </Link>
+            <Link to="/login">Login</Link>
+          </Button>
           <div className="hidden lg:flex space-x-6 h-full items-center">
             <Separator orientation="vertical" className="h-1/2" />
-            <Link
-              to="/sign-up"
+            <Button
+              asChild
               className={buttonVariants({
                 variant: "default",
               })}
             >
-              Sign up
-            </Link>
+              <Link to="/sign-up">Sign up</Link>
+            </Button>
           </div>
         </>
       )}

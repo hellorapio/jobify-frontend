@@ -3,14 +3,26 @@ import MobileNav from "./MobileNav";
 import UserStatus from "./UserStatus";
 import NavItems from "./NavItems";
 import { Separator } from "./ui/separator";
+import { Menu } from "lucide-react";
+import { useState } from "react";
 
 const Nav = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
-    <nav className=" sticky z-50 top-0 inset-x-0 h-16">
+    <nav className=" sticky z-40 top-0 inset-x-0 h-16">
       <header className="relative border-b-[1px]">
         <div className="container">
           <div className="flex h-16 items-center lg:gap-6">
-            <MobileNav />
+            <MobileNav isOpen={isOpen} setIsOpen={setIsOpen} />
+            <div className="flex">
+              <button
+                type="button"
+                onClick={() => setIsOpen((s) => !s)}
+                className="lg:hidden relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-inherit"
+              >
+                <Menu className="h-6 w-6" aria-hidden="true" />
+              </button>
+            </div>
 
             <div className="ml-4 flex lg:ml-0">
               <Logo />
