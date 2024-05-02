@@ -2,6 +2,7 @@ import AuthProvider from "@/contexts/AuthContext";
 import ThemeProvider from "@/contexts/ThemeContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
+import { ModeToggle } from "./ui/toggle";
 
 type ProvidersProps = {
   children: React.ReactNode;
@@ -33,6 +34,7 @@ export default function Providers({ children }: ProvidersProps) {
           />
         </AuthProvider>
       </QueryClientProvider>
+      <ModeToggle />
     </ThemeProvider>
   );
 }

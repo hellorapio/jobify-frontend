@@ -4,7 +4,7 @@ import { Dispatch, createContext, useContext } from "react";
 
 type AuthContextType = {
   isLoading: boolean;
-  user: IUser | null;
+  user: IUser;
   error: object | null;
   isAuthenticated: boolean;
   dispatch: Dispatch<ReducerActionAuth>;

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useVerify } from "@/hooks/auth/hooks";
 import SmallSpinner from "@/components/shared/SmallSpinner";
 
@@ -18,8 +18,8 @@ export default function Verify() {
       <div className="w-full h-screen lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]">
         <div>
           <div className="flex items-center justify-center h-full">
-            <div className="w-full max-w-md p-4 space-y-4">
-              <h1 className="text-3xl font-bold text-center">
+            <div className="w-full max-w-md p-4 space-y-4 flex flex-col">
+              <h1 className="text-3xl font-bold text-center ">
                 Verify Account
               </h1>
               <p className="text-center">
@@ -31,6 +31,9 @@ export default function Verify() {
                   "Account verified successfully"
                 )}
               </p>
+              <Link to="/" className=" text-lg text-center ">
+                <span className="border-b-2 py-1">Home &rarr;</span>
+              </Link>
             </div>
           </div>
         </div>

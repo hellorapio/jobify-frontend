@@ -24,9 +24,9 @@ const App: FC = () => {
             }
           ></Route>
           <Route path="contact-us"></Route>
-          <Route path="pricing"></Route>
+          {/* <Route path="pricing"></Route> */}
           <Route path="categories"></Route>
-          <Route path="employers"></Route>
+          <Route path="companies"></Route>
           <Route path="top-5-jobs"></Route>
         </Route>
         <Route path="/dashboard">
