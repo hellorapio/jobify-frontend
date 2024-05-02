@@ -1,9 +1,9 @@
 import { useAuthContext } from "@/hooks/auth/useAuthContext";
 import { Link } from "react-router-dom";
-import SmallSpinner from "./SmallSpinner";
-import { buttonVariants } from "../ui/button";
-import UserAccountNav from "../UserAccountNav";
-import { Separator } from "../ui/separator";
+import SmallSpinner from "./shared/SmallSpinner";
+import { buttonVariants } from "./ui/button";
+import UserAccountNav from "./UserAccountNav";
+import { Separator } from "./ui/separator";
 
 export default function UserStatus() {
   const { isAuthenticated, isLoading, user } = useAuthContext();
@@ -23,15 +23,17 @@ export default function UserStatus() {
           >
             Login
           </Link>
-          <Separator orientation="vertical" className="h-1/2" />
-          <Link
-            to="/sign-up"
-            className={buttonVariants({
-              variant: "default",
-            })}
-          >
-            Sign up
-          </Link>
+          <div className="hidden lg:flex space-x-6 h-full items-center">
+            <Separator orientation="vertical" className="h-1/2" />
+            <Link
+              to="/sign-up"
+              className={buttonVariants({
+                variant: "default",
+              })}
+            >
+              Sign up
+            </Link>
+          </div>
         </>
       )}
     </>
