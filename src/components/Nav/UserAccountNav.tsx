@@ -5,7 +5,7 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
+} from "../ui/dropdown-menu";
 import { Link } from "react-router-dom";
 import { IUser } from "@/types";
 import { CircleUser } from "lucide-react";
@@ -33,7 +33,11 @@ const UserAccountNav = ({ user }: { user: IUser }) => {
             <p className="font-medium text-sm ">{user.name}</p>
           </div>
         </div>
-
+        {!user.isVerified && (
+          <div className="text-destructive font-bold text-sm px-2">
+            User's Email is not Verified
+          </div>
+        )}
         <DropdownMenuSeparator />
 
         <DropdownMenuItem asChild>

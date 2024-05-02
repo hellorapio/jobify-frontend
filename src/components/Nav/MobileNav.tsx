@@ -44,7 +44,7 @@ const MobileNav = ({
               <button
                 type="button"
                 onClick={() => setIsOpen(false)}
-                className="lg:hidden absolute top-2 left-5 p-2 rounded-md text-inherit"
+                className="lg:hidden absolute top-3 left-5 p-2 rounded-md text-inherit"
               >
                 <X className="h-6 w-6" aria-hidden="true" />
               </button>

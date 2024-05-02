@@ -1,9 +1,9 @@
 import { useAuthContext } from "@/hooks/auth/useAuthContext";
 import { Link } from "react-router-dom";
-import SmallSpinner from "./shared/SmallSpinner";
-import { Button, buttonVariants } from "./ui/button";
+import SmallSpinner from "../shared/SmallSpinner";
+import { Button, buttonVariants } from "../ui/button";
 import UserAccountNav from "./UserAccountNav";
-import { Separator } from "./ui/separator";
+import { Separator } from "../ui/separator";
 
 export default function UserStatus() {
   const { isAuthenticated, isLoading, user } = useAuthContext();
