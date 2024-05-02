@@ -1,5 +1,7 @@
+import UserAccBtn from "@/components/UserAccBtn";
 import { Button } from "@/components/ui/button";
 import { FC } from "react";
+import { Link } from "react-router-dom";
 
 const Home: FC = () => {
   return (
@@ -18,8 +20,10 @@ const Home: FC = () => {
         been easier.
       </p>
       <div className="flex gap-6">
-        <Button>Browse Jobs &rarr;</Button>
-        <Button variant="secondary">Don't Have an account ?</Button>
+        <Button asChild>
+          <Link to="/jobs">Browse Jobs &rarr;</Link>
+        </Button>
+        <UserAccBtn />
       </div>
     </div>
   );
