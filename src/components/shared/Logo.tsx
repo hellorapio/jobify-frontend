@@ -18,7 +18,7 @@ const Logo: FC = () => {
             : "logo-light.png"
         }
         alt="Jobify"
-        className="w-36"
+        className="w-32 lg:w-36"
       />
     </Link>
   );
