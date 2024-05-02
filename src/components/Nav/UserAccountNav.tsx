@@ -9,6 +9,7 @@ import {
 import { Link } from "react-router-dom";
 import { IUser } from "@/types";
 import { CircleUser } from "lucide-react";
+import { Button } from "../ui/button";
 
 const UserAccountNav = ({ user }: { user: IUser }) => {
   const { logout } = useLogout();
@@ -23,7 +24,10 @@ const UserAccountNav = ({ user }: { user: IUser }) => {
             className="w-8 h-8 rounded-full"
           />
         ) : (
-          <CircleUser className="w-8 h-8 cursor-pointer " />
+          <Button variant="outline" size="icon">
+            <CircleUser className="w-6 h-6 cursor-pointer " />
+            <span className="sr-only">User Menu</span>
+          </Button>
         )}
       </DropdownMenuTrigger>
 

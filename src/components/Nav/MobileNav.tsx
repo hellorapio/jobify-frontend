@@ -29,7 +29,7 @@ const MobileNav = ({
   }, [isOpen]);
 
   return (
-    <div className="mr-4 bg-background z-[20]">
+    <div className="mr-4 bg-background z-[20] lg:hidden">
       {isOpen && (
         <div
           className={cn(

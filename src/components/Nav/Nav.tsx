@@ -12,7 +12,7 @@ const Nav = () => {
     <nav className=" sticky z-40 top-0 inset-x-0 h-16">
       <div className="relative border-b-[1px]">
         <div className="container">
-          <div className="flex h-16 items-center lg:gap-6">
+          <div className="flex h-16 items-center lg:-ml-6 lg:gap-x-6">
             <MobileNav isOpen={isOpen} setIsOpen={setIsOpen} />
             <div className="flex">
               <button

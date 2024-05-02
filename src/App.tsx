@@ -6,7 +6,7 @@ import PageNotFound from "./pages/NotFound";
 import About from "./pages/About";
 import { Login } from "./pages/auth/Login";
 import Signup from "./pages/auth/SignUp";
-import ProtectedRoute from "./components/shared/Protect";
+// import ProtectedRoute from "./components/shared/Protect";
 import Verify from "./pages/auth/Verify";
 
 const App: FC = () => {
@@ -15,14 +15,7 @@ const App: FC = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />}></Route>
-          <Route
-            path="about"
-            element={
-              <ProtectedRoute>
-                <About />
-              </ProtectedRoute>
-            }
-          ></Route>
+          <Route path="about" element={<About />}></Route>
           <Route path="contact-us"></Route>
           {/* <Route path="pricing"></Route> */}
           <Route path="categories"></Route>
