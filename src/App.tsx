@@ -20,6 +20,7 @@ const App: FC = () => {
           {/* <Route path="pricing"></Route> */}
           <Route path="categories"></Route>
           <Route path="companies"></Route>
+          <Route path="jobs"></Route>
           <Route path="top-5-jobs"></Route>
         </Route>
         <Route path="/dashboard">
