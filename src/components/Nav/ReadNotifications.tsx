@@ -3,7 +3,6 @@ import { Button } from "../ui/button";
 import { useReadNotifications } from "@/hooks/useReadNotifcations";
 import SmallSpinner from "../shared/SmallSpinner";
 import { INotification } from "@/types";
-import { set } from "zod";
 
 type Props = {
   setNotifications: React.Dispatch<React.SetStateAction<INotification[]>>;
