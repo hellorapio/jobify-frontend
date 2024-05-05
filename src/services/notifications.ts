@@ -1,6 +1,20 @@
-import constants from "@/services/constants";
+import constants from "./constants";
+const api = constants.api + "notifications/";
 
-export async function notifications() {
-  const res = await fetch(constants.api + "notifications");
-  return await res.json();
+export async function readNotification() {
+  const res = await fetch(api, {
+    method: "POST",
+    credentials: "include",
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("token") || "",
+    },
+  });
+
+  const data = await res.json();
+
+  if (!res.ok) {
+    throw new Error(data.message);
+  }
+
+  return data.data;
 }

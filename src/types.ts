@@ -72,3 +72,11 @@ export interface IUser {
     email: string;
   };
 }
+
+export interface INotification {
+  title: string;
+  content: string;
+  createdAt: Date;
+  read: boolean;
+  _id: string;
+}

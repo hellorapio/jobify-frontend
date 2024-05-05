@@ -9,7 +9,7 @@ import { useState } from "react";
 const Nav = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
-    <nav className=" sticky z-40 top-0 inset-x-0 h-16">
+    <nav className=" sticky z-40 top-0 inset-x-0 h-16 bg-background">
       <div className="relative border-b-[1px]">
         <div className="container">
           <div className="flex h-16 items-center lg:-ml-6 lg:gap-x-6">

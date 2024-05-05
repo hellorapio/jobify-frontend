@@ -4,6 +4,7 @@ import SmallSpinner from "../shared/SmallSpinner";
 import { Button, buttonVariants } from "../ui/button";
 import UserAccountNav from "./UserAccountNav";
 import { Separator } from "../ui/separator";
+import Notifications from "./Notifications";
 
 export default function UserStatus() {
   const { isAuthenticated, isLoading, user } = useAuthContext();
@@ -12,7 +13,12 @@ export default function UserStatus() {
   return (
     <>
       {isAuthenticated ? (
-        <UserAccountNav user={user} />
+        <>
+          <div className="flex gap-4 items-center">
+            <UserAccountNav user={user} />
+            <Notifications />
+          </div>
+        </>
       ) : (
         <>
           <Button
