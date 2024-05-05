@@ -8,7 +8,7 @@ const Home: FC = () => {
     <div className="container h-[calc(100vh-64px)] flex flex-col justify-center text-center items-center -translate-y-20">
       <span
         className="text-muted-foreground italic text-sm relative before:bg-primary 
-      before:absolute before:w-1/2 after:w-1/2 sm:before:w-3/4 sm:after:w-3/4 md:before:w-full before:h-1 before:right-full before:top-1/2 after:absolute after:bg-primary 
+      before:absolute before:w-1/4 after:w-1/4 sm:before:w-3/4 sm:after:w-3/4 md:before:w-full before:h-1 before:right-full before:top-1/2 after:absolute after:bg-primary 
       md:after:w-full after:h-1 before:-translate-x-2 after:translate-x-2 after:top-1/2"
       >
         Unlock Your Potential with us
