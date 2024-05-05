@@ -41,18 +41,10 @@ export default function Notifications() {
     });
 
     res.addEventListener("notification", (e) => {
-      console.log("new notification");
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       //@ts-ignore
       const data = JSON.parse(e.data);
-      console.log(data);
       setNotifications((prev) => [data, ...prev]);
-    });
-
-    res.addEventListener("heartbeat", () => {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      //@ts-ignore
-      console.log("heartbeat");
     });
 
     res.addEventListener("error", (e) => {
@@ -97,9 +89,9 @@ export default function Notifications() {
           </CardContent>
           <CardFooter>
             {notifications.length > 0 ? (
-              notifications[0].read ? null : (
+              notifications.filter((val) => !val.read).length > 0 ? (
                 <ReadNotifications setNotifications={setNotifications} />
-              )
+              ) : null
             ) : null}
           </CardFooter>
         </Card>
