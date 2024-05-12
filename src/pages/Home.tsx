@@ -1,11 +1,13 @@
 import UserAccBtn from "@/components/UserAccBtn";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { MapPin, Search } from "lucide-react";
 import { FC } from "react";
 import { Link } from "react-router-dom";
 
 const Home: FC = () => {
   return (
-    <div className="container h-[calc(100vh-64px)] flex flex-col justify-center text-center items-center -translate-y-20">
+    <div className="container h-[calc(100vh-64px)] flex flex-col justify-center text-center items-center -translate-y-10">
       <span
         className="text-muted-foreground italic text-sm relative before:bg-primary 
       before:absolute before:w-1/4 after:w-1/4 sm:before:w-3/4 sm:after:w-3/4 md:before:w-full before:h-1 before:right-full before:top-1/2 after:absolute after:bg-primary 
@@ -28,6 +30,18 @@ const Home: FC = () => {
           <Link to="/jobs">Browse Jobs &rarr;</Link>
         </Button>
         <UserAccBtn />
+      </div>
+
+      <div className="bg-secondary p-4 flex flex-col w-3/4 md:flex-row md:w-fit gap-4 mt-10 rounded-lg">
+        <div className="flex items-center relative">
+          <Search className="text-muted-foreground absolute left-2" />
+          <Input placeholder="Job Keyword" className="pl-10" />
+        </div>
+        <div className="flex items-center relative">
+          <MapPin className="text-muted-foreground absolute left-2" />
+          <Input placeholder="City" className="pl-10" />
+        </div>
+        <Button>Find Job</Button>
       </div>
     </div>
   );
