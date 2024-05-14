@@ -12,10 +12,10 @@ export default function ContactForm() {
             Leave us a <span className="text-primary">Message</span>
           </h1>
           <p className="text-muted-foreground my-6 text-center md:w-1/2 ">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam
-            repellat et consequatur. Modi quod veniam tenetur nobis alias
-            in assumenda similique harum, expedita dignissimos facere enim
-            numquam asperiores rem deserunt!
+            We're here to assist you! Whether you have questions, feedback,
+            or just want to say hello, feel free to reach out to us using
+            the form below. Your messages are important to us, and we'll do
+            our best to respond promptly. Thank you for connecting with us!
           </p>
           <form className="w-full sm:w-1/2 flex flex-col gap-8">
             <div>
