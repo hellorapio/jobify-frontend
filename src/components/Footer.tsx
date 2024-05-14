@@ -46,12 +46,12 @@ const Footer: FC = () => {
     <footer className="p-6">
       <div className="container">
         <div className="grid grid-cols-2 md:grid-cols-6 gap-6 md:gap-0">
-          <div className="col-span-2 ">
+          <div className="col-span-2">
             <Logo />
-            <p className="text-md text-gray-500">
+            <p className="text-sm md:text-md text-gray-500">
               ©2024 Jobify. All rights reserved.
             </p>
-            <p className="text-sm text-gray-500">
+            <p className="text-xs md:text-sm text-gray-500">
               Made with ❤️ by{" "}
               <span className="text-primary">Abdelrahman Osman</span>
             </p>
