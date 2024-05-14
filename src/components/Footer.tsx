@@ -43,15 +43,15 @@ const helpItems = [
 
 const Footer: FC = () => {
   return (
-    <footer className="p-6">
+    <footer className="py-6">
       <div className="container">
         <div className="grid grid-cols-2 md:grid-cols-6 gap-6 md:gap-0">
           <div className="col-span-2">
             <Logo />
-            <p className="text-sm md:text-md text-gray-500">
+            <p className="text-sm md:text-md text-gray-500 w-full">
               ©2024 Jobify. All rights reserved.
             </p>
-            <p className="text-xs md:text-sm text-gray-500">
+            <p className="text-xs md:text-sm text-gray-500 w-full">
               Made with ❤️ by{" "}
               <span className="text-primary">Abdelrahman Osman</span>
             </p>
