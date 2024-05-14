@@ -8,6 +8,7 @@ import { Login } from "./pages/auth/Login";
 import Signup from "./pages/auth/SignUp";
 // import ProtectedRoute from "./components/shared/Protect";
 import Verify from "./pages/auth/Verify";
+import Contact from "./pages/Contact";
 
 const App: FC = () => {
   return (
@@ -16,7 +17,7 @@ const App: FC = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />}></Route>
           <Route path="about" element={<About />}></Route>
-          <Route path="contact-us"></Route>
+          <Route path="contact-us" element={<Contact />}></Route>
           {/* <Route path="pricing"></Route> */}
           <Route path="categories"></Route>
           <Route path="companies"></Route>
