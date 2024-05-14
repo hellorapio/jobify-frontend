@@ -3,7 +3,6 @@ import { MapPin, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { set } from "zod";
 
 export default function JobSearch() {
   const [keyword, setKeyword] = useState("");
