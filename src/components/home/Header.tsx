@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export default function Header() {
   return (
     <header className=" h-[calc(100vh-64px)] border-b-8 border-primary">
-      <div className="container flex flex-col justify-center text-center items-center -translate-y-10 h-full">
+      <div className="container flex flex-col justify-center text-center items-center md:-translate-y-10 h-full">
         <HeroText />
         <div className="flex gap-6">
           <Button asChild>
