@@ -53,7 +53,7 @@ export default function FeaturedJobs() {
                   />
                 </div>
                 <div>
-                  <CardTitle className="text-xl">{card.title}</CardTitle>
+                  <CardTitle className="text-lg md:text-xl">{card.title}</CardTitle>
                   <CardDescription>{card.description}</CardDescription>
                 </div>
               </div>
