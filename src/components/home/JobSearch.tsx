@@ -20,7 +20,7 @@ export default function JobSearch() {
   }
 
   return (
-    <div className="bg-secondary p-4 flex flex-col w-full sm:w-3/4 md:w-auto gap-2 mt-10 rounded-lg">
+    <div className="bg-secondary p-4 flex flex-col w-full sm:w-3/4 md:w-auto gap-2 md:translate-y-10 mt-10 rounded-lg">
       <div className="bg-secondary flex flex-col w-full md:flex-row gap-4">
         <div className="flex items-center relative">
           <Search className="text-muted-foreground absolute left-2" />
