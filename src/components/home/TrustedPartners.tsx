@@ -37,8 +37,8 @@ export default function TrustedPartners() {
       <div className="container flex justify-center">
         <h2
           className="text-2xl md:text-3xl font-bold text-center relative 
-          before:absolute before:w-14 before:bg-primary before:h-1 before:top-0
-          after:absolute after:w-14 after:bg-primary after:h-1 after:-bottom-1 after:right-0"
+          before:absolute before:w-14 before:bg-primary before:h-1 before:-top-1
+          after:absolute after:w-14 after:bg-primary after:h-1 after:-bottom-2 after:right-0"
         >
           Our Trusted <span className="text-primary">Partners</span>
         </h2>
