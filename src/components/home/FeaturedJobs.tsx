@@ -28,7 +28,7 @@ const cardsObj = [
     description: "Full-time",
     image: "microsoft.png",
     content:
-      "Microsoft is hiring a UI/UX Engineer to work on their new project.",
+      "Microsoft is hiring a UI/UX Engineer to work on their new project. ",
   },
 ];
 
@@ -58,10 +58,10 @@ export default function FeaturedJobs() {
                 </div>
               </div>
             </CardHeader>
-            <CardContent className="text-muted-foreground">
+            <CardContent className="text-muted-foreground flex-auto">
               {card.content}
             </CardContent>
-            <CardFooter className="flex justify-end justify-self-end">
+            <CardFooter className="flex justify-end">
               <Button>Apply Now &rarr;</Button>
             </CardFooter>
           </Card>
