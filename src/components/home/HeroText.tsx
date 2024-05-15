@@ -14,9 +14,9 @@ md:after:w-full after:h-1 before:-translate-x-2 after:translate-x-2 after:top-1/
         <span className="text-primary"> Easier</span>
       </h1>
       <p className="text-muted-foreground my-6 md:w-1/2 ">
-        with instant notifications for new job postings and the ability to
-        apply directly from your phone, finding your dream job has never
-        been easier.
+        where opportunities await! Whether you're a seasoned professional
+        or just starting out, our platform offers a wide array of career
+        paths to explore
       </p>
     </>
   );
