@@ -14,8 +14,8 @@ const items = [
     path: "/companies",
   },
   {
-    name: "Top 5 Jobs",
-    path: "/top-5-jobs",
+    name: "Categories",
+    path: "/categories",
   },
   {
     name: "Contact Us",

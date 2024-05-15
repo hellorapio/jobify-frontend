@@ -9,6 +9,7 @@ import Signup from "./pages/auth/SignUp";
 // import ProtectedRoute from "./components/shared/Protect";
 import Verify from "./pages/auth/Verify";
 import Contact from "./pages/Contact";
+import Categories from "./pages/Categories";
 
 const App: FC = () => {
   return (
@@ -19,10 +20,10 @@ const App: FC = () => {
           <Route path="about" element={<About />}></Route>
           <Route path="contact-us" element={<Contact />}></Route>
           {/* <Route path="pricing"></Route> */}
-          <Route path="categories"></Route>
+          <Route path="categories" element={<Categories />}></Route>
           <Route path="companies"></Route>
           <Route path="jobs"></Route>
-          <Route path="top-5-jobs"></Route>
+          <Route path="categories"></Route>
         </Route>
         <Route path="/dashboard">
           <Route path="settings"></Route>

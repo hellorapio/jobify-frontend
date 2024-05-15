@@ -14,8 +14,8 @@ const items = [
     path: "/companies",
   },
   {
-    name: "Top 5 Jobs",
-    path: "/top-5-jobs",
+    name: "Categories",
+    path: "/categories",
   },
   {
     name: "Contact Us",
@@ -23,12 +23,18 @@ const items = [
   },
 ];
 
-export default function MobileNavItems({ clickHandler}: { clickHandler: (href: string) => void}) {
+export default function MobileNavItems({
+  clickHandler,
+}: {
+  clickHandler: (href: string) => void;
+}) {
   return (
     <ul className="container flex gap-5 flex-col font-semibold mt-4 bg-background pb-4 pt-12">
       {items.map((item) => (
         <li key={item.name} className=" pb-1">
-          <Link onClick={() => clickHandler(item.path)} to={item.path}>{item.name}</Link>
+          <Link onClick={() => clickHandler(item.path)} to={item.path}>
+            {item.name}
+          </Link>
         </li>
       ))}
     </ul>

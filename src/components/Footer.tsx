@@ -17,8 +17,8 @@ const linkItems = [
     path: "/companies",
   },
   {
-    name: "Top 5 Jobs",
-    path: "/top-5-jobs",
+    name: "Categories",
+    path: "/categories",
   },
 ];
 
@@ -43,7 +43,7 @@ const helpItems = [
 
 const Footer: FC = () => {
   return (
-    <footer className="py-6">
+    <footer className="pt-6 pb-12">
       <div className="container">
         <div className="grid grid-cols-2 md:grid-cols-6 gap-6 md:gap-0">
           <div className="col-span-2">

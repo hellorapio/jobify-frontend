@@ -42,7 +42,7 @@ export default function FeaturedJobs() {
       </div>
       <div className="grid gap-12 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 container mt-6">
         {cardsObj.map((card) => (
-          <Card className="flex flex-col">
+          <Card className="flex flex-col" key={card.title}>
             <CardHeader>
               <div className="flex items-center gap-6">
                 <div>
@@ -53,7 +53,9 @@ export default function FeaturedJobs() {
                   />
                 </div>
                 <div>
-                  <CardTitle className="text-lg md:text-xl">{card.title}</CardTitle>
+                  <CardTitle className="text-lg md:text-xl">
+                    {card.title}
+                  </CardTitle>
                   <CardDescription>{card.description}</CardDescription>
                 </div>
               </div>
