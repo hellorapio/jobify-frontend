@@ -2,44 +2,7 @@ import { FC } from "react";
 import Logo from "./shared/Logo";
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
-
-const linkItems = [
-  {
-    name: "Jobs",
-    path: "/jobs",
-  },
-  {
-    name: "About",
-    path: "/about",
-  },
-  {
-    name: "Companies",
-    path: "/companies",
-  },
-  {
-    name: "Categories",
-    path: "/categories",
-  },
-];
-
-const helpItems = [
-  {
-    name: "Login",
-    path: "/login",
-  },
-  {
-    name: "Signup",
-    path: "/sign-up",
-  },
-  {
-    name: "Contact Us",
-    path: "/contact-us",
-  },
-  {
-    name: "Privacy Policy",
-    path: "/privacy",
-  },
-];
+import constants from "@/constants";
 
 const Footer: FC = () => {
   return (
@@ -60,7 +23,7 @@ const Footer: FC = () => {
             <div className="">
               <h3 className="font-semibold mb-2">Links</h3>
               <ul className="flex flex-col gap-2">
-                {linkItems.map((item) => (
+                {constants.links.map((item) => (
                   <li
                     key={item.name}
                     className="text-sm text-muted-foreground underline"
@@ -73,7 +36,7 @@ const Footer: FC = () => {
             <div className="">
               <h3 className="font-semibold mb-2">Help</h3>
               <ul className="flex flex-col gap-2">
-                {helpItems.map((item) => (
+                {constants.helpItems.map((item) => (
                   <li
                     key={item.name}
                     className="text-sm text-muted-foreground underline"

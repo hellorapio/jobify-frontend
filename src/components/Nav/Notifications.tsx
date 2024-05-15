@@ -17,7 +17,7 @@ import {
   DropdownMenuContent,
 } from "@radix-ui/react-dropdown-menu";
 
-import constants from "@/services/constants";
+import constants from "@/constants";
 const api = constants.api + "notifications/";
 import { EventSourcePolyfill } from "event-source-polyfill";
 

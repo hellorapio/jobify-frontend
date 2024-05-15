@@ -1,4 +1,4 @@
-import constants from "./constants";
+import constants from "../constants";
 const api = constants.api + "users/";
 
 export async function getCurrentUser() {
