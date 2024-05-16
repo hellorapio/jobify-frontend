@@ -6,10 +6,12 @@ import PageNotFound from "./pages/NotFound";
 // import About from "./pages/About";
 import { Login } from "./pages/auth/Login";
 import Signup from "./pages/auth/SignUp";
-// import ProtectedRoute from "./components/shared/Protect";
+import ProtectedRoute from "./components/shared/Protect";
 import Verify from "./pages/auth/Verify";
 import Contact from "./pages/Contact";
 import Categories from "./pages/Categories";
+import Dashboard from "./pages/Dashboard";
+import DashboardLayout from "./pages/DashbaordLayout";
 
 const App: FC = () => {
   return (
@@ -24,10 +26,19 @@ const App: FC = () => {
           {/* <Route path="pricing"></Route> */}
           {/* <Route path="companies"></Route> */}
         </Route>
-        <Route path="/dashboard">
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <DashboardLayout />
+            </ProtectedRoute>
+          }
+        >
+          <Route index element={<Dashboard />}></Route>
           <Route path="settings"></Route>
           <Route path="resume"></Route>
         </Route>
+
         <Route path="sign-up" element={<Signup />}></Route>
         <Route path="login" element={<Login />}></Route>
         <Route path="verify/:token" element={<Verify />}></Route>

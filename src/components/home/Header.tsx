@@ -8,8 +8,7 @@ export default function Header() {
   return (
     <header className=" h-[calc(100vh-64px)] border-b-[6px] border-primary">
       <div
-        className="container flex flex-col justify-center text-center items-center md:-translate-y-10 h-full
-      "
+        className="container flex flex-col justify-center text-center items-center md:-translate-y-10 h-full"
       >
         <HeroText />
         <div className="flex gap-6">
