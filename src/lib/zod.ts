@@ -35,3 +35,39 @@ export const loginSchema = z.object({
     .min(1, "Email is Required"),
   password: z.string().min(1, "Password is Required"),
 });
+
+export const postJobSchema = z.object({
+  title: z.string().min(1, "title is Required"),
+  description: z.string().min(50, "description is required"),
+  applyUrl: z.string().optional(),
+  contactEmail: z.string(),
+  address: z.string().optional(),
+  salary: z.string().optional(),
+  employmentType: z.enum([
+    "full-time",
+    "part-time",
+    "contract",
+    "internship",
+  ]),
+  experienceLevel: z.enum(["entry", "mid", "senior"]),
+  jobFunction: z.enum([
+    "engineering",
+    "sales",
+    "marketing",
+    "product",
+    "design",
+    "customer service",
+    "finance",
+    "human resources",
+    "healthcare",
+    "others",
+  ]),
+  educationLevel: z.enum([
+    "high school",
+    "associate",
+    "bachelor",
+    "master",
+    "doctorate",
+  ]),
+  currency: z.enum(["USD", "EUR", "GBP", "YEN"]),
+});

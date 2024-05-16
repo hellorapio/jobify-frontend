@@ -1,4 +1,4 @@
-import Main from "@/components/dashboard/Main";
+import Main from "@/components/dashboard/MainDashboard";
 
 export default function Dashboard() {
   return (

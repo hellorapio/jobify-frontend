@@ -12,6 +12,8 @@ import Contact from "./pages/Contact";
 import Categories from "./pages/Categories";
 import Dashboard from "./pages/Dashboard";
 import DashboardLayout from "./pages/DashbaordLayout";
+import AddJob from "./components/dashboard/AddJob";
+import MyJobs from "./components/dashboard/MyJobs";
 
 const App: FC = () => {
   return (
@@ -35,8 +37,8 @@ const App: FC = () => {
           }
         >
           <Route index element={<Dashboard />}></Route>
-          <Route path="settings"></Route>
-          <Route path="resume"></Route>
+          <Route path="new-job" element={<AddJob />}></Route>
+          <Route path="my-jobs" element={<MyJobs />}></Route>
         </Route>
 
         <Route path="sign-up" element={<Signup />}></Route>

@@ -1,11 +1,14 @@
 import { Home, ListTodo, Package } from "lucide-react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 
 // import Notifications from "../Nav/Notifications";
 import Logo from "../shared/Logo";
+import { Button } from "../ui/button";
+import { useAuthContext } from "@/hooks/auth/useAuthContext";
 
 export default function DashboardNav() {
+  const { user } = useAuthContext();
   return (
     <div className="hidden border-r bg-muted/40 md:block">
       <div className="flex h-full max-h-screen flex-col gap-2">
@@ -39,17 +42,25 @@ export default function DashboardNav() {
                 6
               </Badge>
             </NavLink>
-            <NavLink
-              to="/dashboard/myjobs"
-              className={({ isActive }) =>
-                isActive
-                  ? "flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary bg-muted"
-                  : "flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
-              }
-            >
-              <Package className="h-4 w-4" />
-              Jobs
-            </NavLink>
+
+            {user.role !== "worker" && (
+              <>
+                <NavLink
+                  to="/dashboard/my-jobs"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary bg-muted"
+                      : "flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+                  }
+                >
+                  <Package className="h-4 w-4" />
+                  Jobs
+                </NavLink>
+                <Button size={"sm"} className="mt-2">
+                  <Link to="/dashboard/new-job">Post New Job</Link>
+                </Button>
+              </>
+            )}
           </nav>
         </div>
       </div>
