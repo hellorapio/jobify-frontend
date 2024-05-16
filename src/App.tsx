@@ -14,6 +14,7 @@ import Dashboard from "./pages/Dashboard";
 import DashboardLayout from "./pages/DashbaordLayout";
 import AddJob from "./components/dashboard/AddJob";
 import MyJobs from "./components/dashboard/MyJobs";
+import Jobs from "./pages/Jobs";
 
 const App: FC = () => {
   return (
@@ -23,7 +24,7 @@ const App: FC = () => {
           <Route index element={<Home />}></Route>
           <Route path="contact-us" element={<Contact />}></Route>
           <Route path="categories" element={<Categories />}></Route>
-          <Route path="jobs"></Route>
+          <Route path="jobs" element={<Jobs />}></Route>
           {/* <Route path="about" element={<About />}></Route> */}
           {/* <Route path="pricing"></Route> */}
           {/* <Route path="companies"></Route> */}

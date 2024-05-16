@@ -19,3 +19,18 @@ export async function addJob(body: object) {
 
   return data;
 }
+
+export async function getJobs() {
+  const res = await fetch(api, {
+    method: "GET",
+    credentials: "include",
+  });
+
+  const data = await res.json();
+
+  if (!res.ok) {
+    throw new Error(data.message);
+  }
+
+  return data;
+}
