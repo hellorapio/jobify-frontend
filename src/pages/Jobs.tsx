@@ -14,7 +14,7 @@ export default function Jobs() {
   console.log(data);
   return (
     <main>
-      <div className=" pb-12">
+      <div className="pb-12">
         <div className="container flex flex-col items-center h-full mt-16">
           <h1 className="text-3xl md:text-4xl md:w-1/2 lg:text-5xl text-center font-bold">
             <span className="text-primary">Jobs</span>

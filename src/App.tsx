@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Layout from "./pages/Layout";
 import PageNotFound from "./pages/NotFound";
-// import About from "./pages/About";
+import About from "./pages/About";
 import { Login } from "./pages/auth/Login";
 import Signup from "./pages/auth/SignUp";
 import ProtectedRoute from "./components/shared/Protect";
@@ -25,9 +25,8 @@ const App: FC = () => {
           <Route path="contact-us" element={<Contact />}></Route>
           <Route path="categories" element={<Categories />}></Route>
           <Route path="jobs" element={<Jobs />}></Route>
-          {/* <Route path="about" element={<About />}></Route> */}
-          {/* <Route path="pricing"></Route> */}
-          {/* <Route path="companies"></Route> */}
+          <Route path="about" element={<About />}></Route>
+          <Route path="pricing"></Route>
         </Route>
         <Route
           path="/dashboard"

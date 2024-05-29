@@ -10,6 +10,14 @@ export default {
       path: "/categories",
     },
     {
+      name: "About",
+      path: "/about",
+    },
+    {
+      name: "Pricing",
+      path: "/pricing",
+    },
+    {
       name: "Contact Us",
       path: "/contact-us",
     },
