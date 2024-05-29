@@ -31,6 +31,14 @@ export default {
       name: "Categories",
       path: "/categories",
     },
+    {
+      name: "About",
+      path: "/about",
+    },
+    {
+      name: "Pricing",
+      path: "/pricing",
+    },
   ],
   helpItems: [
     {

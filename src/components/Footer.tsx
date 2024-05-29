@@ -50,10 +50,10 @@ const Footer: FC = () => {
             <div>
               <h3 className="font-semibold mb-2">Social Links</h3>
               <div className="flex gap-4 text-primary">
-                <Facebook />
-                <Instagram />
-                <Youtube />
-                <Twitter />
+                <Facebook className="cursor-pointer" />
+                <Instagram className="cursor-pointer" />
+                <Youtube className="cursor-pointer" />
+                <Twitter className="cursor-pointer" />
               </div>
             </div>
           </div>

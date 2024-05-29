@@ -1,6 +1,5 @@
 import constants from "@/constants";
 import { Link } from "react-router-dom";
-import SmallSpinner from "../shared/SmallSpinner";
 
 export default function NavItems() {
   return (
