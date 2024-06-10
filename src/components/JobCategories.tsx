@@ -1,3 +1,4 @@
+import HeadStart from "./HeadStart";
 import { Button } from "./ui/button";
 import {
   Database,
@@ -52,14 +53,13 @@ export default function JobCategories() {
     <main>
       <div className="md:h-[calc(100vh-64px)] pb-12 md:pb-0">
         <div className="container flex flex-col items-center h-full mt-16">
-          <h1 className="text-3xl md:text-4xl md:w-1/2 lg:text-5xl text-center font-bold">
-            Job <span className="text-primary">Categories</span>
-          </h1>
-          <p className="text-muted-foreground my-6 text-center md:w-1/2 ">
-            Discover diverse job categories designed for every skill level
+          <HeadStart
+            title="Job"
+            special="Categories"
+            description="Discover diverse job categories designed for every skill level
             and career path. Explore exciting opportunities tailored to
-            your expertise and interests.
-          </p>
+            your expertise and interests."
+          />
           <div className="grid gap-6 grid-cols-1 md:grid-cols-4 mt-8 w-3/4 mx-auto">
             {categories.map((category) => (
               <div
